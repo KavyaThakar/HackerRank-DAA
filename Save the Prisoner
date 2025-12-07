@@ -1,0 +1,28 @@
+import math
+import os
+import random
+import re
+import sys
+
+def saveThePrisoner(n, m, s):
+    warned = (s + m - 1) % n
+    return warned if warned != 0 else n
+
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    t = int(input().strip())
+
+    for t_itr in range(t):
+        first_multiple_input = input().rstrip().split()
+
+        n = int(first_multiple_input[0])  # prisoners
+        m = int(first_multiple_input[1])  # sweets
+        s = int(first_multiple_input[2])  # start chair
+
+        result = saveThePrisoner(n, m, s)
+
+        fptr.write(str(result) + '\n')
+
+    fptr.close()
