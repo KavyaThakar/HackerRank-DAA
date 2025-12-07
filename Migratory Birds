@@ -1,0 +1,27 @@
+import math
+import os
+import random
+import re
+import sys
+
+def migratoryBirds(arr):
+    bird_counts = [0] * 6  # Since bird types are from 1 to 5
+
+    for bird in arr:
+        bird_counts[bird] += 1
+
+    max_count = max(bird_counts)
+    for type_id in range(1, 6):
+        if bird_counts[type_id] == max_count:
+            return type_id
+
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    arr_count = int(input().strip())
+    arr = list(map(int, input().rstrip().split()))
+
+    result = migratoryBirds(arr)
+
+    fptr.write(str(result) + '\n')
+    fptr.close()
