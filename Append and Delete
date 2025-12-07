@@ -1,0 +1,31 @@
+import math
+import os
+import random
+import re
+import sys
+
+def appendAndDelete(s, t, k):
+    # Find the common prefix length
+    common_length = 0
+    for i in range(min(len(s), len(t))):
+        if s[i] == t[i]:
+            common_length += 1
+        else:
+            break
+    
+    min_ops = (len(s) - common_length) + (len(t) - common_length)
+    
+    if min_ops > k:
+        return "No"
+    elif (min_ops % 2 == k % 2) or (len(s) + len(t) <= k):
+        return "Yes"
+    else:
+        return "No"
+
+
+if __name__ == '__main__':
+    s = input().strip()
+    t = input().strip()
+    k = int(input().strip())
+    result = appendAndDelete(s, t, k)
+    print(result)
