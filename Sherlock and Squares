@@ -1,0 +1,17 @@
+import math
+import os
+import random
+import re
+import sys
+
+def squares(a, b):
+    start = math.ceil(math.sqrt(a))
+    end = math.floor(math.sqrt(b))
+    return max(0, end - start + 1)
+
+
+if __name__ == '__main__':
+    q = int(input().strip())
+    for _ in range(q):
+        a, b = map(int, input().split())
+        print(squares(a, b))
